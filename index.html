@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Валентинка 💕</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffd6e8;
+            background-image:
+                radial-gradient(#ff5c8a 2px, transparent 2px),
+                radial-gradient(#ff8fab 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #ff3366;
+        }
+
+        a {
+            color: #ff3366;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            background-color: #ff5c8a;
+            color: white;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #ff3366;
+            transform: scale(1.05);
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #ff3366;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="start">
+    <h1>Привет 💕</h1>
+    <p>Нажми сюда и <a href="#main">переходи</a></p>
+</div>
+
+<div class="container" id="main" style="display:none;">
+    <h1>Будешь моей валентинкой? 💘</h1>
+
+    <button onclick="showResult()">Да</button>
+    <button onclick="showResult()">Дааа</button>
+
+    <div id="result">
+        💖 14 февраля, 13:00 <br>
+        ресторан «Земляне»
+    </div>
+</div>
+
+<script>
+    // показываем основной экран после перехода по ссылке
+    if (window.location.hash === "#main") {
+        document.getElementById("start").style.display = "none";
+        document.getElementById("main").style.display = "block";
+    }
+
+    window.addEventListener("hashchange", () => {
+        if (window.location.hash === "#main") {
+            document.getElementById("start").style.display = "none";
+            document.getElementById("main").style.display = "block";
+        }
+    });
+
+    function showResult() {
+        document.getElementById("result").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
